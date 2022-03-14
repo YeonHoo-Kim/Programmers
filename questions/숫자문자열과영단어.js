@@ -1,0 +1,44 @@
+function check(str) {
+  switch (str) {
+    case "zero":
+      return "0";
+    case "one":
+      return "1";
+    case "two":
+      return "2";
+    case "three":
+      return "3";
+    case "four":
+      return "4";
+    case "five":
+      return "5";
+    case "six":
+      return "6";
+    case "seven":
+      return "7";
+    case "eight":
+      return "8";
+    case "nine":
+      return "9";
+    default:
+      return "";
+  }
+}
+
+function solution(s) {
+  let str = "",
+    ans = "";
+  for (const i in s) {
+    if (s[i] >= "a" && s[i] <= "z") {
+      str = `${str}${s[i]}`;
+      if (check(str) !== "") {
+        ans = `${ans}${check(str)}`;
+        str = "";
+      }
+    } else {
+      ans = `${ans}${s[i]}`;
+      str = "";
+    }
+  }
+  return parseInt(ans);
+}
